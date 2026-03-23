@@ -7,19 +7,29 @@ type SubmitState = "idle" | "error" | "success";
 export default function Home() {
   const [email, setEmail] = useState("");
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [loading , setLoading] = useState(false);
 
   const isEmailValid = useMemo(() => {
     return /^\S+@\S+\.\S+$/.test(email.trim());
   }, [email]);
 
-  function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!isEmailValid) {
       setSubmitState("error");
       return;
     }
-    // UI-only waitlist capture (no backend wired yet).
-    setSubmitState("success");
+    const res = await fetch("/api/waitlist", {
+      method: "POST",
+      body: JSON.stringify({ email }),
+    });
+  
+    const data = await res.json();
+    console.log(data)
+    if(data.success) {
+      setLoading(false);  
+      setSubmitState("success");
+    }
   }
 
   return (
@@ -101,7 +111,7 @@ export default function Home() {
                   disabled={submitState === "success"}
                   className="text-left w-full rounded-2xl cursor-pointer bg-purple-500 px-5 py-3 text-sm font-semibold text-white shadow-[0_20px_60px_rgba(91,0,255,0.35)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-80 sm:w-auto sm:min-w-[210px]"
                 >
-                  {submitState === "success" ? "You're in!" : "Join the waitlist"}
+                  {submitState === "success" ? <p className="text-white text-bold">Youre In Upon Launch An Email Will be sent to you</p> : "Join the waitlist"}
                 </button>
 
                 {submitState === "error" ? (

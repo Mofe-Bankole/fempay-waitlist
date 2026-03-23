@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
-import { Funnel_Display } from "next/font/google";
 import "./globals.css";
 
-const funnel_display = Funnel_Display({
-  weight: "400",
-  variable: "--font-funnel-display",
-  subsets: ["latin"]
+import localFont from "next/font/local";
+import { DM_Sans } from "next/font/google";
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
 });
+
+// export const funnelDisplay = localFont({
+//   src: [
+//     {
+//       path: "../public/FunnelDisplay-Regular.ttf",
+//       weight: "400",
+//       style: "normal",
+//     },
+//   ],
+//   variable: "--font-funnel-display",
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: "Join the Fempay Waitlist",
@@ -21,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${funnel_display.variable} antialiased`}>
+      <body className={`${dmSans.variable} antialiased`}>
         {children}
       </body>
     </html>
