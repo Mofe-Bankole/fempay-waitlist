@@ -44,9 +44,9 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#070211]/40 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold tracking-tight text-purple-500 bg-clip-text">
+            <a className="text-xl font-bold tracking-tight text-purple-500 bg-clip-text" href="/">
               Fempay
-            </span>
+            </a>
           </div>
           <a
             href="#join"
@@ -62,18 +62,16 @@ export default function Home() {
           <div className="flex flex-col justify-center">
             <p className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-200">
               <span className="h-1.5 w-1.5 rounded-full bg-[#FF00C8]" />
-              Early access for students + families
+              Coming Soon to Nigerian Campuses
             </p>
 
             <h1 className="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
-              Student financing, <span className="text-[#FF00C8]">empowered</span>
-              <br />
-              by you.
+            Campus Money , Built <span className="text-purple-600">Different</span>
+             
             </h1>
 
             <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-300">
-              Fempay helps students take control of educational finances—securely,
-              transparently, and with the right support when you need it.
+              Fempay lets you pay, earn rewards and discover deals at your campus - all in one app
             </p>
 
             <div id="join" className="mt-7">
@@ -109,7 +107,7 @@ export default function Home() {
                 <button
                   type="submit"
                   disabled={submitState === "success"}
-                  className="text-left w-full rounded-2xl cursor-pointer bg-purple-500 px-5 py-3 text-sm font-semibold text-white shadow-[0_20px_60px_rgba(91,0,255,0.35)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-80 sm:w-auto sm:min-w-[210px]"
+                  className="sm:text-left w-full rounded-xl cursor-pointer bg-purple-500 px-5 py-3 text-sm font-semibold text-white shadow-[0_20px_60px_rgba(91,0,255,0.35)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-80 sm:w-auto sm:min-w-[210px] text-center"
                 >
                   {submitState === "success" ? <p className="text-white text-bold">Youre In Upon Launch An Email Will be sent to you</p> : "Join the waitlist"}
                 </button>
@@ -121,9 +119,9 @@ export default function Home() {
                 ) : null}
               </form>
 
-              <p className="mt-3 text-xs text-zinc-400">
+              {/* <p className="mt-3 text-xs text-zinc-400">
                 No spam. Unsubscribe anytime.
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -145,12 +143,7 @@ export default function Home() {
                   </span>
                   Secure transactions with clear visibility
                 </li>
-                <li className="flex gap-3">
-                  <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-xl bg-white/5 border border-white/10">
-                    🤝
-                  </span>
-                  Parent + family collaboration where it matters
-                </li>
+                
                 <li className="flex gap-3">
                   <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-xl bg-white/5 border border-white/10">
                     🪪
@@ -172,49 +165,46 @@ export default function Home() {
         </section>
 
         <section className="mx-auto max-w-6xl px-6 pb-16 pt-4">
-          <div className="flex items-end justify-between gap-6">
-            <h3 className="text-2xl font-semibold text-purple-200">
-              Built for students, trusted by families
+          <div className="flex items-end justify-between gap-6 ">
+            <h3 className="text-2xl font-semibold text-purple-200 text-center">
+              Built for students
             </h3>
            
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
+
               {
-                icon: "💳",
-                title: "Managed Spending",
-                desc: "Track spending and set limits with clear approvals.",
+                title : "Campus Payments",
+                desc : "Pay merchants around you instantly"
               },
               {
-                icon: "🔒",
-                title: "Secure Transactions",
-                desc: "Industry-grade security with transparent activity.",
+
+                title: "Exclusive Deals",
+                desc: "Unlock Offers from Camput Merchants",
               },
               {
-                icon: "🤝",
-                title: "Parent Partnerships",
-                desc: "Invite families to fund and monitor together.",
+
+                title: "Student Verified",
+                desc: "Built only for verified university students",
               },
               {
-                icon: "🪪",
-                title: "Student Verification",
-                desc: "Fast, focused verification so the product stays right.",
+                title : "Earn XP rewards",
+                desc : "Every TRansaction Puts You on the Leaderboard"
               }
             ].map((f) => (
               <div
                 key={f.title}
-                className="group rounded-3xl border cursor-pointer border-white/10 bg-white/5 p-6 transition hover:-translate-y-0.5 hover:bg-white/10"
+                className="group rounded-3xl border cursor-pointer border-white/10 bg-white/5 px-6 py-6 transition hover:-translate-y-0.5 hover:bg-white/10"
               >
                 <div className="flex items-start gap-3">
-                  {/* <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-2xl">
-                    {f.icon}
-                  </div> */}
+                
                   <div>
                     <p className="text-sm font-semibold text-zinc-100">
                       {f.title}
                     </p>
-                    <p className="mt-1 text-sm text-zinc-400">{f.desc}</p>
+                    <p className="mt-4 text-sm text-zinc-400">{f.desc}</p>
                   </div>
                 </div>
                 <div className="mt-5 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition group-hover:opacity-100" />

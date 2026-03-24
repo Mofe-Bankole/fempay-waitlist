@@ -9,17 +9,17 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
 });
 
-// export const funnelDisplay = localFont({
-//   src: [
-//     {
-//       path: "../public/FunnelDisplay-Regular.ttf",
-//       weight: "400",
-//       style: "normal",
-//     },
-//   ],
-//   variable: "--font-funnel-display",
-//   display: "swap",
-// });
+export const funnelDisplay = localFont({
+  src: [
+    {
+      path: "../public/FunnelDisplay-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-funnel-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Join the Fempay Waitlist",
@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} antialiased`}>
+      <body className={`${funnelDisplay.variable} antialiased`}>
         {children}
       </body>
     </html>
